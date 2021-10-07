@@ -45,7 +45,8 @@ cors_proxy.createServer({
     xfwd: false,
   },
   setHeaders: {
-    'Access-Control-Allow-Origin':'watchanime.dev'
+    'access-control-allow-origin':'watchanime.dev',
+    'x-powered-by': 'watchanime.dev'
   }
 }).listen(port, host, function() {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
