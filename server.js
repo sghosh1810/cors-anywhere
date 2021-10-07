@@ -1,3 +1,5 @@
+var btoa = require('btoa');
+var atob = require('atob');
 // Listen on a specific host via the HOST environment variable
 var host = process.env.HOST || '0.0.0.0';
 // Listen on a specific port via the PORT environment variable
@@ -15,12 +17,17 @@ function parseEnvList(env) {
   }
   return env.split(',');
 }
-
+function handleInitialRequest (req) {
+  req.url =req.url.substring(1);
+  req.url = '/'+atob(req.url);
+  return false;
+}
 // Set up rate-limiting to avoid abuse of the public CORS Anywhere server.
 var checkRateLimit = require('./lib/rate-limit')(process.env.CORSANYWHERE_RATELIMIT);
 
 var cors_proxy = require('./lib/cors-anywhere');
 cors_proxy.createServer({
+  handleInitialRequest: handleInitialRequest,
   originBlacklist: originBlacklist,
   originWhitelist: originWhitelist,
   requireHeader: ['origin', 'x-requested-with'],
