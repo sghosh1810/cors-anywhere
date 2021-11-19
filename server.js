@@ -45,9 +45,7 @@ cors_proxy.createServer({
     xfwd: false,
   },
   setHeaders: {
-    'referer' : 'https://gogoplay1.com/streaming.php?id=MTc0ODYy&title=Sugar+Bunnies+Episode+14.18',
-    'origin' : 'https://gogoplay1.com',
-    'cdn-loop': 'cloudflare',
+    'referer' : 'https://www.mp4upload.com/',
   },
 }).listen(port, host, function() {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
