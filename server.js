@@ -26,8 +26,8 @@ cors_proxy.createServer({
   requireHeader: ['origin', 'x-requested-with'],
   checkRateLimit: checkRateLimit,
   removeHeaders: [
-    // 'cookie',
-    // 'cookie2',
+    'cookie',
+    'cookie2',
     // Strip Heroku-specific headers
     'x-request-start',
     'x-request-id',
@@ -42,11 +42,11 @@ cors_proxy.createServer({
   redirectSameOrigin: true,
   httpProxyOptions: {
     // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
-    xfwd: false,
+    xfwd: true,
   },
-  setHeaders: {
-    'referer' : 'https://www.mp4upload.com/',
-  },
+  // setHeaders: {
+  //   'referer' : 'https://www.mp4upload.com/',
+  // },
 }).listen(port, host, function() {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
