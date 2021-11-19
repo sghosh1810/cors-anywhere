@@ -46,6 +46,8 @@ cors_proxy.createServer({
   },
   setHeaders: {
     'referer' : 'https://gogoplay1.com/',
+    'origin' : 'https://gogoplay1.com',
+    'cdn-loop': 'cloudflare',
   },
 }).listen(port, host, function() {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
