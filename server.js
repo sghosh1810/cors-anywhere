@@ -44,9 +44,10 @@ cors_proxy.createServer({
     // Do not add X-Forwarded-For, etc. headers, because Heroku already adds it.
     xfwd: true,
   },
-  // setHeaders: {
-  //   'referer' : 'https://www.mp4upload.com/',
-  // },
+  setHeaders: {
+    'referer' : 'https://dood.ws/',
+    'Range': 'bytes=0-',
+  },
 }).listen(port, host, function() {
   console.log('Running CORS Anywhere on ' + host + ':' + port);
 });
