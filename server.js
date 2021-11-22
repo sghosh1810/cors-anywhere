@@ -45,7 +45,7 @@ cors_proxy.createServer({
     xfwd: true,
   },
   setHeaders: {
-    'referer' : 'https://gogoplay1.com',
+    'origin' : 'https://gogoplay1.com',
     'referer': 'https://gogoplay1.com/streaming.php?id=MTc1MDEw&title=Happy+Kappy+Episode+26',
   },
 }).listen(port, host, function() {
